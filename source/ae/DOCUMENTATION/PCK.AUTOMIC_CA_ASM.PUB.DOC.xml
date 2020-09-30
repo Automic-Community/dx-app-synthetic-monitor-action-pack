@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_CA_ASM.PUB.DOC">
+<HEADER state="1">
+<Title>Package Documentation</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[About the Package
+================================
+CA ASM (https://asm.ca.com/) is a monitoring product that monitors internet facing applications form monitoring stations running in different worldwide locations.CA ASM has 94 website
+monitoring stations worldwidein 48 countries to ensure the 24x7 availability of your website to an international audience. It comes with features such as Smart Reporting, Analysis and
+Alerting, script monitoring, and Real Browser Monitoring.
+
+=Supported versions=
+v 10.0.18
+
+=Setup=
+* The Agent should be able to access CA ASM rest API endpoint URL in order to make HTTP requests.
+* Internet Connection should be available on Agent OS.
+
+=Common Inputs=
+- ASM URL*: Specify the REST endpoint URL for CA ASM. E.g. https://api.asm.ca.com/1.6
+- Username: Provide username for the REST API authentication. E.g. ca_integrations@abc.com
+- Password: Provide the password for the REST API authentication.
+- Key: Provide nkey for the REST API if you want to use the existing session.
+- Finalize Session: Specify whether the session should be terminated when the action finishes. If "no" is selected, the session ends when the expiration time is reached. E.g. Yes
+
+Note: If the user selects "No" in the "Finalize Session" field, the action does not log out after performing the operation and the published key can be reused in other ASM actions.
+
+=Actions=
+Following actions are supported.
+
+* Action name: PCK.AUTOMIC_CA_ASM.PUB.ACTION.ACTIVATE_MONITOR
+* Action Description: This action activates a monitor in CA ASM.
+
+* Action name: PCK.AUTOMIC_CA_ASM.PUB.ACTION.GET_ENDPOINT_STATUS
+* Action Description: This action fetches the latest status of endpoint mentioned the provided monitor in CA ASM.
+
+* Action name: PCK.AUTOMIC_CA_ASM.PUB.ACTION.DEACTIVATE_MONITOR
+* Action Description: This action deactivates a monitor in CA ASM.]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>

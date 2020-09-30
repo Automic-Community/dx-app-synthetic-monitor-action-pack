@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_CA_ASM.PUB.JOBI.ADV_OPTIONS_PARAM">
+<HEADER state="1">
+<Title>Advanced Options Param Values</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[:DEFINE &PAIR_STRING#,string,2
+:DEFINE &PARAMETER_NAME#,string,20
+:DEFINE &PARAMETER_VALUE#,string,20
+:DEFINE &OPTION_ARRAY#,string,20
+
+:FILL &OPTION_ARRAY#[]=STR_SPLIT(&UC4RB_CA_ASM_ADV_OPTIONS#,",")
+:SET &VARA1# =1
+:SET &LEN1#=LENGTH(&OPTION_ARRAY#[],SIZE)
+:WHILE &VARA1# LE &LEN1#
+:  SET &TEMP_STRING#=&OPTION_ARRAY#[&VARA1#]
+:  IF STR_LENGTH(&TEMP_STRING#) NE 0
+:      FILL &PAIR_STRING#[]=STR_SPLIT(&TEMP_STRING#,"=")
+:      SET &PARAMETER_NAME#[&VARA1#]=&PAIR_STRING#[1]
+:      SWITCH &PAIR_STRING#[1]
+:        CASE 'callback'
+:             SET &PARAMETER_VALUE#[&VARA1#]=''
+:        CASE 'view'
+:            SET &PARAMETER_VALUE#[&VARA1#]='xml'
+:        OTHER
+:             SET &PARAMETER_VALUE#[&VARA1#]=&PAIR_STRING#[2]
+:      ENDSWITCH
+:  ENDIF
+:  SET &VARA1#=&VARA1# + 1
+:ENDWHILE]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>
